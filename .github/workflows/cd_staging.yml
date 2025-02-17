@@ -7,7 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     name: Deploying everything to the staging cluster
   steps:
-    -name: SSH into server
     -run: |
       echo ${{secrets,SSH_PRIVATE_KEY}} &> ~/ssh_key
       ssh -i ~/.ssh_key root@137.184.33.129
