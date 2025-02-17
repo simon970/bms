@@ -10,7 +10,7 @@ jobs:
     steps:
       - run: |
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/ssh_key
-          echo "${{ secrets.kNOWN_HOSTS }}" > ~/known_hosts
+          echo "${{ secrets.kNOWN_HOSTS }}" > ~/.ssh/known_hosts
           ssh -i ~/ssh_key root@137.184.33.129
           cd bms/ && git pull
           pnpm install
