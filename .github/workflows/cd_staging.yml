@@ -15,7 +15,9 @@ jobs:
           touch /home/runner/.ssh/known_hosts
           chmod 700 /home/runner/ssh_key
           echo "${{ secrets.kNOWN_SECRETS }}" &> /home/runner/.ssh/known_hosts
-          ssh -i ~/ssh_key root@137.184.33.129 -t " cd bms/ && git pull &&
+          ssh -i ~/ssh_key root@137.184.33.129 -t " cd bms/ && git pull origin main &&
+          export PATH = /root/.nvm/versions/node/v22.14.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin &&
+          npm install -g pnpm &&
           pnpm install &&
           pm2 run build &&
           pm2 restart fe-server &&
