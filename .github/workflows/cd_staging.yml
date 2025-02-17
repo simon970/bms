@@ -8,11 +8,11 @@ jobs:
     name: Deploying everything to the staging cluster
   steps:
     - run: |
-      echo ${{secrets,SSH_PRIVATE_KEY}} &> ~/ssh_key
-      ssh -i ~/.ssh_key root@137.184.33.129
-      cd bms/ && git pull
-      pnpm install
-      pm2 run build 
-      pm2 restart fe-server
-      pm2 restart ws-server
-      pm2 restart http-server
+        echo ${{secrets,SSH_PRIVATE_KEY}} &> ~/ssh_key
+        ssh -i ~/.ssh_key root@137.184.33.129
+        cd bms/ && git pull
+        pnpm install
+        pm2 run build 
+        pm2 restart fe-server
+        pm2 restart ws-server
+        pm2 restart http-server
