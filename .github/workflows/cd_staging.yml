@@ -1,7 +1,8 @@
 name: Deploy to staging
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 jobs:
   redeploy-everything:
     runs-on: ubuntu-latest
