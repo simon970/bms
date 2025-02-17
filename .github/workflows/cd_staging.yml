@@ -13,12 +13,13 @@ jobs:
           mkdir -p /home/runner/.ssh
           ls /home/runner/.ssh
           touch /home/runner/.ssh/known_hosts
+          chmod 700 /home/runner/ssh_key
           echo "${{ secrets.kNOWN_SECRETS }}" &> /home/runner/.ssh/known_hosts
-          ssh -i ~/ssh_key root@137.184.33.129
-          cd bms/ && git pull
-          pnpm install
-          pm2 run build
-          pm2 restart fe-server
-          pm2 restart ws-server
-          pm2 restart http-server 
+          ssh -i ~/ssh_key root@137.184.33.129 -t " cd bms/ && git pull &&
+          pnpm install &&
+          pm2 run build &&
+          pm2 restart fe-server &&
+          pm2 restart ws-server &&
+          pm2 restart http-server "
+          
    
