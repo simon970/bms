@@ -16,7 +16,7 @@ jobs:
           chmod 700 /home/runner/ssh_key
           echo "${{ secrets.kNOWN_SECRETS }}" &> /home/runner/.ssh/known_hosts
           ssh -i ~/ssh_key root@137.184.33.129 -t " cd bms/ && git pull origin main &&
-          export PATH = /root/.nvm/versions/node/v22.14.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin &&
+          export PATH= /root/.nvm/versions/node/v22.14.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin &&
           npm install -g pnpm &&
           pnpm install &&
           pnpm run build &&
